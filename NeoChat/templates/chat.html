@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="chat-container">
+    <h2 class="text-center mb-4">Django Chatbot</h2>
+    
+    <div class="chat-box" id="chat-box">
+        {% for message in messages %}
+            <div class="message {% if message.is_user %}user-message{% else %}bot-message{% endif %}">
+                {{ message.text }}
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="input-group mt-3">
+        <input type="text" class="form-control" id="user-input" placeholder="Type your message...">
+        <button class="btn btn-primary" id="send-button">
+            <i class="fas fa-paper-plane"></i> Send
+        </button>
+    </div>
+</div>
+{% endblock %}
